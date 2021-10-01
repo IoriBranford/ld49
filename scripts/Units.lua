@@ -342,8 +342,10 @@ function Units.onCollisionEvent(event, f1, f2, contact)
     end
 end
 
-function Units.iterate()
-    return pairs(unitsbyid)
+function Units.updateScene(fixedfrac)
+    for id, unit in pairs(unitsbyid) do
+        scene:updateFromUnit(id, unit, fixedfrac)
+    end
 end
 
 return Units
