@@ -141,6 +141,45 @@ local function propertiesToFields(t, dest)
     end
 end
 
+local function triangulate(points)
+    local cantriangulate, triangles = pcall(love.math.triangulate, points)
+    if cantriangulate then
+        local tris = {}
+        for i = 1, #triangles do
+            local triangle = triangles[i]
+            for i = 1, #triangle do
+                tris[#tris+1] = triangle[i]
+            end
+        end
+        return tris
+    end
+    return false, triangles
+end
+
+local function processPoly(object)
+    local poly = object.polygon or object.polyline
+    if poly then
+        local points = {}
+        local x = object.x
+        local y = object.y
+        object.x = 0
+        object.y = 0
+        object.points = points
+        object.polygon = nil
+        object.polyline = nil
+        for i = 1, #poly do
+            local point = poly[i]
+            local px = x + point.x
+            local py = y + point.y
+            points[#points+1] = px
+            points[#points+1] = py
+        end
+        if object.shape == "polygon" then
+            object.triangles = triangulate(points)
+        end
+    end
+end
+
 function Tiled.addTileset(tileset)
     -- assert(tileset.objectalignment == "topleft", "Unsupported objectalignment "..tileset.objectalignment)
     assert(not tileset.source,
@@ -235,6 +274,7 @@ function Tiled.addTileset(tileset)
                 if #name > 0 then
                     shapes[name] = shape
                 end
+                processPoly(shape)
                 propertiesToFields(shape)
             end
         end
@@ -517,31 +557,7 @@ function Tiled.load(mapfile)
                         object.type = tile.type
                     end
                 end
-                local poly = object.polygon or object.polyline
-                if poly then
-                    local points = {}
-                    object.points = points
-                    object.polygon = nil
-                    object.polyline = nil
-                    for i = 1, #poly do
-                        local point = poly[i]
-                        points[#points+1] = point.x
-                        points[#points+1] = point.y
-                    end
-                    if object.shape == "polygon" then
-                        local cantriangulate, triangles = pcall(love.math.triangulate, points)
-                        if cantriangulate then
-                            local tris = {}
-                            for i = 1, #triangles do
-                                local triangle = triangles[i]
-                                for i = 1, #triangle do
-                                    tris[#tris+1] = triangle[i]
-                                end
-                            end
-                            object.triangles = tris
-                        end
-                    end
-                end
+                processPoly(object)
                 local text = object.text
                 if text then
                     local fontfamily = object.fontfamily or "default"
