@@ -51,6 +51,14 @@ function Physics.addChainFixture(id, loop, ...)
     return fixture
 end
 
+function Physics.addPolygonFixture(id, ...)
+    local body = bodies[id]
+    local shape = love.physics.newPolygonShape(...)
+    local fixture = love.physics.newFixture(body, shape)
+    fixture:setUserData(id)
+    return fixture
+end
+
 function Physics.removeBody(id)
     local body = bodies[id]
     if body then
@@ -60,6 +68,10 @@ function Physics.removeBody(id)
         end
         body:destroy()
     end
+end
+
+function Physics.setGravity(x, y)
+    world:setGravity(x, y)
 end
 
 function Physics.fixedupdate()
