@@ -13,8 +13,5 @@ function HexBlock:start(scene)
     Body.start(self)
 end
 
-function HexBlock:think()
-    self.vely = self.vely + 0.25
-end
 
 return HexBlock
