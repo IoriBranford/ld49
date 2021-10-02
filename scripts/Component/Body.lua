@@ -93,7 +93,7 @@ function Body.start(unit)
             end
             if fixture then
                 fixture:setFriction(unit.friction or 0)
-				fixture:setDensity(0)
+				-- fixture:setDensity(0)
                 fixture:setSensor(unit.sensor or false)
             end
         end
