@@ -18,7 +18,7 @@ function Body.start(unit)
         local velx = unit.velx or 0
         local vely = unit.vely or 0
         body:setLinearVelocity(velx, vely)
-
+		body:setSleepingAllowed(not unit.bodystayawake)
         for i, fixture in pairs(body:getFixtures()) do
             fixture:destroy()
         end
