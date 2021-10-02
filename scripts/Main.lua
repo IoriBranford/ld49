@@ -95,7 +95,7 @@ function love.load()--args, unfilteredargs)
     Config.applyDisplayMode()
 	love.window.setTitle(love.filesystem.getIdentity())
 
-    Tiled.animationtimeunit = "fixedupdates"
+    -- Tiled.animationtimeunit = "fixedupdates"
     Tiled.setFontPath("data/fonts/")
     love.graphics.setLineStyle("rough")
 

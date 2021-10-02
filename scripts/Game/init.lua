@@ -18,8 +18,7 @@ function Game.loadphase()
     Units.init(scene)
     map = Tiled.load("data/map.lua")
 
-    Physics.setGravity(0, .125)
-    scene:addMap(map)
+    scene:addMap(map, "tilelayer,imagelayer")
 
     for i, layer in ipairs(map.layers) do
         if layer.type == "objectgroup" then
@@ -28,6 +27,7 @@ function Game.loadphase()
             end
         end
     end
+    Units.activateAdded()
 end
 
 function Game.quitphase()
@@ -39,19 +39,22 @@ function Game.quitphase()
 end
 
 function Game.fixedupdate()
-    scene:animate(1)
     Physics.fixedupdate()
     Units.updatePositions()
     Units.think()
-    for id, body in Physics.iterateBodies() do
-        Units.updateBody(id, body)
-    end
+    -- for id, body in Physics.iterateBodies() do
+    --     Units.updateBody(id, body)
+    -- end
     Units.activateAdded()
     Units.deleteRemoved()
 end
 
 function Game.update(dsecs, fixedfrac)
-    Units.updateScene(fixedfrac)
+    for id, body in Physics.iterateBodies() do
+        scene:updateFromBody(id, body, fixedfrac)
+    end
+    scene:animate(dsecs*1000)
+    -- Units.updateScene(fixedfrac)
 end
 
 function Game.draw()
