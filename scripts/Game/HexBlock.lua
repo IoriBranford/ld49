@@ -13,5 +13,4 @@ function HexBlock:start(scene)
     Body.start(self)
 end
 
-
 return HexBlock
