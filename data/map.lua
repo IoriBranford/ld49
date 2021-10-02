@@ -9,7 +9,7 @@ return {
   tilewidth = 65,
   tileheight = 89,
   nextlayerid = 3,
-  nextobjectid = 20,
+  nextobjectid = 21,
   properties = {},
   tilesets = {
     {
@@ -23,7 +23,7 @@ return {
       image = "fullTiles.png",
       imagewidth = 512,
       imageheight = 512,
-      objectalignment = "unspecified",
+      objectalignment = "center",
       tileoffset = {
         x = 0,
         y = 0
@@ -73,6 +73,194 @@ return {
                   { x = -32, y = 48 },
                   { x = -32, y = 16 }
                 },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "aliens",
+      firstgid = 36,
+      tilewidth = 40,
+      tileheight = 66,
+      spacing = 0,
+      margin = 0,
+      columns = 3,
+      image = "aliens.png",
+      imagewidth = 128,
+      imageheight = 256,
+      objectalignment = "center",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 40,
+        height = 66
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 9,
+      tiles = {
+        {
+          id = 0,
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 0,
+                y = 13,
+                width = 40,
+                height = 40,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 1,
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 0,
+                y = 13,
+                width = 40,
+                height = 40,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 3,
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 0,
+                y = 13,
+                width = 40,
+                height = 40,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 4,
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 0,
+                y = 13,
+                width = 40,
+                height = 40,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 6,
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "index",
+            id = 2,
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 0,
+                y = 13,
+                width = 40,
+                height = 40,
+                rotation = 0,
+                visible = true,
                 properties = {
                   ["collidable"] = true
                 }
@@ -342,6 +530,20 @@ return {
           properties = {
             ["color"] = "#ff00aa00"
           }
+        },
+        {
+          id = 20,
+          name = "",
+          type = "Bee",
+          shape = "rectangle",
+          x = 292.5,
+          y = 133.5,
+          width = 40,
+          height = 66,
+          rotation = 0,
+          gid = 42,
+          visible = true,
+          properties = {}
         }
       }
     }

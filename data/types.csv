@@ -1,3 +1,4 @@
-type,script,bodytype,collidable,
-HexBlock,Game.HexBlock,dynamic,,
-Ground,Game.Ground,static,true,
+type,script,bodytype,collidable,speed,
+HexBlock,Game.HexBlock,dynamic,,,
+Ground,Game.Ground,static,true,,
+Bee,Game.Bee,dynamic,,4,
