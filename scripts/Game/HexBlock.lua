@@ -12,7 +12,7 @@ function HexBlock:start(scene)
 end
 
 function HexBlock:think()
-    self.body:applyForce(0, .25)
+    -- self.body:applyForce(0, .25)
 end
 
 return HexBlock

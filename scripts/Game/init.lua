@@ -49,7 +49,7 @@ function Game.loadphase()
     Physics.init()
     scene = Scene.new()
     Units.init(scene)
-    map = Tiled.load("data/map.lua")
+    map = Tiled.load("data/map2.lua")
 
     scene:addMap(map, "tilelayer,imagelayer")
 
@@ -62,6 +62,9 @@ function Game.loadphase()
     end
     Units.activateAdded()
     started = false
+    if map.backgroundcolor then
+        love.graphics.setBackgroundColor(table.unpack(map.backgroundcolor))
+    end
 end
 
 function Game.quitphase()
@@ -99,7 +102,7 @@ end
 
 function Game.draw()
     love.graphics.setCanvas(canvas)
-    love.graphics.clear()
+    love.graphics.clear(love.graphics.getBackgroundColor())
     scene:draw()
     if Config.drawbodies then
         Physics.draw(0, 0, Config.basewindowwidth, Config.basewindowheight)
