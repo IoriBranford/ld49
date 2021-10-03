@@ -18,7 +18,7 @@ local fixedlimit = 1
 local variableupdate = true
 
 function love.load()--args, unfilteredargs)
-    Config.load()
+    -- Config.load()
     Controls.init()
 
     local firstphase = "Game"
@@ -183,7 +183,7 @@ function love.quit()
         love.quitphase()
     end
     Audio.clear()
-    Config.save()
+    -- Config.save()
 	if profile then
 		local filename = os.date("profile_%Y-%m-%d_%H-%M-%S")..".txt"
 		love.filesystem.write(filename, profile.report())
