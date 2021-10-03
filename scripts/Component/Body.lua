@@ -44,9 +44,14 @@ function Body.start(unit)
 								shapeobject.x+w/2,
 								shapeobject.y+h/2)
 						elseif shape == "polygon" then
-							fixture = Physics.addPolygonFixture(id, shapeobject.points)
+							local points = shapeobject.points
+							if #points <= 16 then
+								fixture = Physics.addPolygonFixture(id, points)
+							else
+								fixture = Physics.addChainFixture(id, true, points)
+							end
 						elseif shape == "polyline" then
-							fixture = Physics.addChainFixture(id, true, shapeobject.points)
+							fixture = Physics.addChainFixture(id, false, shapeobject.points)
 						end
 						if fixture then
 							fixture:setFriction(shapeobject.friction or 0)
@@ -87,9 +92,14 @@ function Body.start(unit)
                 local r = (w + h) / 4
                 fixture = Physics.addCircleFixture(id, r, w/2, h/2)
             elseif shape == "polygon" then
-                fixture = Physics.addPolygonFixture(id, unit.points)
+				local points = unit.points
+				if #points <= 16 then
+					fixture = Physics.addPolygonFixture(id, points)
+				else
+					fixture = Physics.addChainFixture(id, true, points)
+				end
 			elseif shape == "polyline" then
-				fixture = Physics.addChainFixture(id, true, unit.points)
+				fixture = Physics.addChainFixture(id, false, unit.points)
             end
             if fixture then
                 fixture:setFriction(unit.friction or 0)
