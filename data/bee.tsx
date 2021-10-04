@@ -15,14 +15,5 @@
    <frame tileid="1" duration="50"/>
   </animation>
  </tile>
- <tile id="1" type="Bee">
-  <objectgroup draworder="index" id="2">
-   <object id="1" x="16" y="16" width="32" height="32">
-    <properties>
-     <property name="collidable" type="bool" value="true"/>
-    </properties>
-    <ellipse/>
-   </object>
-  </objectgroup>
- </tile>
+ <tile id="1" type="Bee"/>
 </tileset>

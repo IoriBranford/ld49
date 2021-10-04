@@ -20,6 +20,7 @@ end
 function Ant:onCollision(other)
     if other.health and not self.eatinghex then
         self.eatinghex = other
+        self.speed = 0
     end
 end
 
@@ -28,20 +29,21 @@ function Ant:think()
     if self.eatinghex then
         if HexBlock.eat(self.eatinghex, 1) <= 0 then
             if self.eatinghex.honey then
+                self.honey = true
                 Pathing.reverseDirection(self)
-                self.scalex = -self.scalex
+                self.sprite.sx = -self.sprite.sx
                 Sprite.changeTile(self, "full")
+                self.speed = 1
+            else
+                self.speed = 2
             end
             self.eatinghex = nil
         end
-        self.speed = 0
-    else
-        self.speed = 2
     end
     Pathing.walkPath(self)
     if self.velx ~= 0 and self.vely ~= 0 then
         self.rotation = math.atan2(self.vely, self.velx)
-        if self.scalex < 0 then
+        if self.sprite.sx < 0 then
             self.rotation = self.rotation - math.pi
         end
     end

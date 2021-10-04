@@ -8,8 +8,8 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 36,
-  nextlayerid = 5,
-  nextobjectid = 99,
+  nextlayerid = 6,
+  nextobjectid = 100,
   backgroundcolor = { 0, 128, 225 },
   properties = {},
   tilesets = {
@@ -508,37 +508,7 @@ return {
         },
         {
           id = 1,
-          type = "Bee",
-          objectGroup = {
-            type = "objectgroup",
-            draworder = "index",
-            id = 2,
-            name = "",
-            visible = true,
-            opacity = 1,
-            offsetx = 0,
-            offsety = 0,
-            parallaxx = 1,
-            parallaxy = 1,
-            properties = {},
-            objects = {
-              {
-                id = 1,
-                name = "",
-                type = "",
-                shape = "ellipse",
-                x = 16,
-                y = 16,
-                width = 32,
-                height = 32,
-                rotation = 0,
-                visible = true,
-                properties = {
-                  ["collidable"] = true
-                }
-              }
-            }
-          }
+          type = "Bee"
         }
       }
     },
@@ -2189,6 +2159,20 @@ return {
           properties = {
             ["pathdirection"] = 1
           }
+        },
+        {
+          id = 99,
+          name = "HexThrown",
+          type = "",
+          shape = "rectangle",
+          x = 432,
+          y = 378,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 1,
+          visible = true,
+          properties = {}
         }
       }
     }
