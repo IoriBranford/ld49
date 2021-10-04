@@ -24,6 +24,7 @@ function HexBlock:onCollision_stick(other)
         return
     end
     self.damage = nil
+    other.damage = nil
     local x, y = self.body:getPosition()
     local otherx, othery = other.body:getPosition()
     local joint = love.physics.newWeldJoint(self.body, other.body, math.mid(x, y, otherx, othery))
