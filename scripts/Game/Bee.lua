@@ -15,10 +15,15 @@ function Bee:start(scene)
     self.lastmovex, self.lastmovey = 1, 0
     self.maxammo = self.maxammo or 20
     self.ammo = self.ammo or self.maxammo
+    self.speed = self.speed or 4
 end
 
 function Bee:onCollision_eatAnt(other)
     if other.type:find("^Ant") then
+        if other.honey and not self.honey then
+            self.speed = self.speed + 2
+            self.honey = true
+        end
         if self.ammo < self.maxammo then
             self.ammo = self.ammo + 1
         end
@@ -28,7 +33,7 @@ end
 
 function Bee:think()
     Body.thinkCollision(self, Bee.onCollision_eatAnt)
-    local speed = self.speed or 4
+    local speed = self.speed
     local dx, dy = Controls.getDirectionInput()
     local throw = Controls.getButtonsPressed()
     if dx ~= 0 then
@@ -40,11 +45,13 @@ function Bee:think()
     end
     self.velx, self.vely = dx*speed, dy*speed
     if throw and self.ammo > 0 then
-        local hex = Units.newUnit_position("HexThrown", self.x, self.y, self.z)
+        local hex = Units.newUnit_position("HexThrown", self.x, self.y)
         local dirx, diry = math.norm(self.lastmovex, self.lastmovey)
         local speed = hex.speed or 8
         hex.velx = dirx*speed
         hex.vely = diry*speed
+        hex.x = hex.x + hex.velx
+        hex.y = hex.y + hex.vely
         self.ammo = self.ammo - 1
     end
 end
