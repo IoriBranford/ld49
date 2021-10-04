@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="36" infinite="1" backgroundcolor="#0080e1" nextlayerid="6" nextobjectid="100">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="36" infinite="1" backgroundcolor="#0080e1" nextlayerid="6" nextobjectid="103">
  <editorsettings>
-  <export target="map2.lua" format="lua"/>
+  <export target="map.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="honeyhex.tsx"/>
  <tileset firstgid="10" source="bee.tsx"/>
@@ -113,6 +113,9 @@
   <object id="95" name="pathfromtop" type="Path" x="-32" y="180">
    <polyline points="96,-198 272,-162 320,-144 272,-108 192,-72 160,-36 144,54 176,0 208,-36 432,-144 688,-18 784,108 800,306 800,468"/>
   </object>
+  <object id="102" name="hexbar" x="32" y="540">
+   <polyline points="0,0 16,0"/>
+  </object>
  </objectgroup>
  <objectgroup id="4" name="prefabs">
   <object id="91" name="Ant1" type="Ant" gid="12" x="768" y="648" width="32" height="16" rotation="270">
@@ -125,6 +128,18 @@
     <property name="pathdirection" type="int" value="1"/>
    </properties>
   </object>
-  <object id="99" name="HexThrown" gid="1" x="432" y="378" width="32" height="48"/>
+  <object id="99" name="HexThrown" gid="1" x="432" y="378" width="32" height="48">
+   <properties>
+    <property name="damage" type="float" value="1"/>
+   </properties>
+  </object>
+  <object id="100" name="HexIcon" type="Shape" x="0" y="0">
+   <properties>
+    <property name="color" type="color" value="#ffffff7f"/>
+    <property name="linecolor" type="color" value="#ffaaaa00"/>
+    <property name="z" type="float" value="10"/>
+   </properties>
+   <polygon points="0,0 0,8 8,12 16,8 16,0 8,-4"/>
+  </object>
  </objectgroup>
 </map>

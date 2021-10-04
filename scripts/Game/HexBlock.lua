@@ -19,6 +19,7 @@ function HexBlock:onCollision_stick(other)
     if self.joints[other.id] then
         return
     end
+    self.damage = nil
     local x, y = self.body:getPosition()
     local otherx, othery = other.body:getPosition()
     local joint = love.physics.newWeldJoint(self.body, other.body, math.mid(x, y, otherx, othery))
@@ -29,6 +30,9 @@ end
 function HexBlock:think()
     -- self.body:applyForce(0, .25)
     Body.thinkCollision(self, HexBlock.onCollision_stick)
+    if self.x < -16 or self.y > 640 then
+        Units.remove(self)
+    end
 end
 
 function HexBlock:eat(damage)

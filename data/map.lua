@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 36,
   nextlayerid = 6,
-  nextobjectid = 100,
+  nextobjectid = 103,
   backgroundcolor = { 0, 128, 225 },
   properties = {},
   tilesets = {
@@ -2112,6 +2112,23 @@ return {
             { x = 800, y = 468 }
           },
           properties = {}
+        },
+        {
+          id = 102,
+          name = "hexbar",
+          type = "",
+          shape = "polyline",
+          x = 32,
+          y = 540,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 16, y = 0 }
+          },
+          properties = {}
         }
       }
     },
@@ -2172,7 +2189,34 @@ return {
           rotation = 0,
           gid = 1,
           visible = true,
-          properties = {}
+          properties = {
+            ["damage"] = 1
+          }
+        },
+        {
+          id = 100,
+          name = "HexIcon",
+          type = "Shape",
+          shape = "polygon",
+          x = 0,
+          y = 0,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polygon = {
+            { x = 0, y = 0 },
+            { x = 0, y = 8 },
+            { x = 8, y = 12 },
+            { x = 16, y = 8 },
+            { x = 16, y = 0 },
+            { x = 8, y = -4 }
+          },
+          properties = {
+            ["color"] = "#ffffff7f",
+            ["linecolor"] = "#ffaaaa00",
+            ["z"] = 10
+          }
         }
       }
     }

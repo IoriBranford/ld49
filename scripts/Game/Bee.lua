@@ -13,12 +13,15 @@ function Bee:start(scene)
     Body.start(self)
     self.body:setGravityScale(0)
     self.lastmovex, self.lastmovey = 1, 0
-    self.ammo = 10
+    self.maxammo = self.maxammo or 20
+    self.ammo = self.ammo or self.maxammo
 end
 
 function Bee:onCollision_eatAnt(other)
     if other.type:find("^Ant") then
-        self.ammo = self.ammo + 1
+        if self.ammo < self.maxammo then
+            self.ammo = self.ammo + 1
+        end
         Units.remove(other)
     end
 end

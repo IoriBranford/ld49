@@ -6,6 +6,7 @@ local Units   = require "Units"
 local Config  = require "Config"
 local Controls= require "Controls"
 local Prefabs = require "Prefabs"
+local Sprite  = require "Component.Sprite"
 
 local Scene = require "Scene"
 local Game = {}
@@ -17,6 +18,8 @@ local canvastransform
 local started
 local antspawntime = 120
 local antspawntimer
+local ammobar
+local bee
 
 function Game.loadphase()
     canvas = love.graphics.newCanvas(Config.basewindowwidth, Config.basewindowheight)
@@ -80,6 +83,17 @@ function Game.loadphase()
             end
         end
     end
+
+    bee = worldlayer.bee
+    local hexbar = worldlayer.hexbar
+    local x, y = hexbar.points[1], hexbar.points[2]
+    local dx = hexbar.points[3] - x
+    ammobar = {}
+    for i = 1, (bee.maxammo or 20) do
+        ammobar[i] = Units.newUnit_position("HexIcon", x, y)
+        x = x + dx
+    end
+
     Units.activateAdded()
     started = false
     if map.backgroundcolor then
@@ -121,6 +135,9 @@ function Game.fixedupdate()
 end
 
 function Game.update(dsecs, fixedfrac)
+    for i, ammoicon in ipairs(ammobar) do
+        Sprite.setHidden(ammoicon, i > bee.ammo)
+    end
     scene:animate(dsecs*1000)
     Units.updateScene(fixedfrac)
 end

@@ -18,9 +18,13 @@ function Ant:start(scene)
 end
 
 function Ant:onCollision(other)
-    if other.health and not self.eatinghex then
-        self.eatinghex = other
-        self.speed = 0
+    if other.health then
+        if other.damage then
+            Units.remove(self)
+        elseif not self.eatinghex then
+            self.eatinghex = other
+            self.speed = 0
+        end
     end
 end
 
@@ -29,11 +33,13 @@ function Ant:think()
     if self.eatinghex then
         if HexBlock.eat(self.eatinghex, 1) <= 0 then
             if self.eatinghex.honey then
+                if not self.honey then
+                    Pathing.reverseDirection(self)
+                    self.sprite.sx = -self.sprite.sx
+                    Sprite.changeTile(self, "full")
+                    self.speed = 1
+                end
                 self.honey = true
-                Pathing.reverseDirection(self)
-                self.sprite.sx = -self.sprite.sx
-                Sprite.changeTile(self, "full")
-                self.speed = 1
             else
                 self.speed = 2
             end
