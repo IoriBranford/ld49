@@ -63,6 +63,9 @@ function Physics.removeBody(id)
     local body = bodies[id]
     if body then
         bodies[id] = nil
+        for i, joint in pairs(body:getJoints()) do
+            joint:destroy()
+        end
         for i, fixture in pairs(body:getFixtures()) do
             fixture:destroy()
         end
