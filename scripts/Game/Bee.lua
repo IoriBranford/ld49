@@ -10,6 +10,7 @@ Bee.metatable = {
 function Bee:start(scene)
     Sprite.start(self, scene)
     Body.start(self)
+    self.body:setGravityScale(0)
 end
 
 function Bee:think()

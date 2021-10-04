@@ -65,6 +65,7 @@ function Game.loadphase()
     if map.backgroundcolor then
         love.graphics.setBackgroundColor(table.unpack(map.backgroundcolor))
     end
+    Physics.setGravity(0, .125)
 end
 
 function Game.quitphase()
