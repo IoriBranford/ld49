@@ -52,7 +52,7 @@ function Game.loadphase()
     Physics.init()
     scene = Scene.new()
     Units.init(scene)
-    map = Tiled.load("data/map2.lua")
+    map = Tiled.load("data/map.lua")
     Units.setNextId(map.nextobjectid)
 
     scene:addMap(map, "tilelayer,imagelayer")
