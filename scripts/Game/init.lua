@@ -17,12 +17,21 @@ local map
 local canvas
 local canvastransform
 local started
-local antspawntime = 120
+local antcount
+local antspawntime
+local antspawntimedec
 local antspawntimer
+local antspawntype
 local ammobar
 local bee
 
 function Game.loadphase()
+    antcount = 50
+    antspawntime = 160
+    antspawntimedec = 2
+    antspawntimer = 0
+    antspawntype = "Ant1"
+
     canvas = love.graphics.newCanvas(Config.basewindowwidth, Config.basewindowheight)
     canvas:setFilter("nearest", "nearest")
 
@@ -101,7 +110,6 @@ function Game.loadphase()
         love.graphics.setBackgroundColor(table.unpack(map.backgroundcolor))
     end
     Physics.setGravity(0, .125)
-    antspawntimer = 0
 end
 
 function Game.quitphase()
@@ -114,6 +122,9 @@ end
 
 function Game.keypressed(key)
     Game.start()
+    if key == "f12" then
+        love.graphics.captureScreenshot(os.date()..".png")
+    end
 end
 
 function Game.gamepadpressed(gamepad, button)
@@ -143,11 +154,15 @@ function Game.fixedupdate()
         Units.updateBody(id, body)
     end
     if started then
-        antspawntimer = antspawntimer + 1
-        if antspawntimer >= antspawntime then
-            Units.newUnit("Ant1")
-            Units.newUnit("Ant2")
-            antspawntimer = antspawntimer - antspawntime
+        if antcount > 0 then
+            antspawntimer = antspawntimer + 1
+            if antspawntimer >= antspawntime then
+                Units.newUnit(antspawntype)
+                antcount = antcount - 1
+                antspawntype = antspawntype == "Ant1" and "Ant2" or "Ant1"
+                antspawntime = antspawntime - antspawntimedec
+                antspawntimer = antspawntimer - antspawntime
+            end
         end
     end
     Units.activateAdded()
@@ -181,6 +196,10 @@ function Game.draw()
     love.graphics.draw(canvas)
 
     love.graphics.pop()
+
+    if not started then
+        love.graphics.printf("PRESS KEY OR BUTTON TO START", 0, love.graphics.getHeight()/2, love.graphics.getWidth(), "center")
+    end
 end
 
 return Game
