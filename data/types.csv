@@ -1,5 +1,5 @@
 type,script,bodytype,bodystayawake,speed,honey,
-HexBlock,Game.HexBlock,static,true,,,
-HexBlock_Honey,Game.HexBlock,static,true,,true,
+HexBlock,Game.HexBlock,dynamic,true,,,
+HexBlock_Honey,Game.HexBlock,dynamic,true,,true,
 Ground,Game.Ground,static,,,,
 Bee,Game.Bee,dynamic,,4,,
