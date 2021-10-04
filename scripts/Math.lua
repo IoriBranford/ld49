@@ -23,6 +23,10 @@ function math.norm(x, y)
     return x/len, y/len
 end
 
+function math.mid(x1, y1, x2, y2)
+    return x1 + (x2 - x1)/2, y1 + (y2 - y1)/2
+end
+
 function math.testrects(ax, ay, aw, ah, bx, by, bw, bh)
     if ax + aw < bx then return false end
     if bx + bw < ax then return false end
