@@ -39,9 +39,11 @@ function Ant:think()
                     Pathing.reverseDirection(self)
                     self.sprite.sx = -self.sprite.sx
                     Sprite.changeTile(self, "full")
-                    self.speed = 1
+                    self.honey = true
                 end
-                self.honey = true
+            end
+            if self.honey then
+                self.speed = 1
             else
                 self.speed = 2
             end
