@@ -111,12 +111,29 @@ function Game.quitphase()
     map = nil
 end
 
+function Game.keypressed(key)
+    Game.start()
+end
+
+function Game.gamepadpressed(gamepad, button)
+    Game.start()
+end
+
+function Game.gamepadaxis(gamepad, axis, value)
+    Game.start()
+end
+
+function Game.start()
+    if not started then
+        started = true
+    end
+end
+
 function Game.fixedupdate()
     if not started then
         if Controls.getButtonsPressed() then
             started = true
         end
-        return
     end
     Physics.fixedupdate()
     Units.updatePositions()
@@ -124,11 +141,13 @@ function Game.fixedupdate()
     for id, body in Physics.iterateBodies() do
         Units.updateBody(id, body)
     end
-    antspawntimer = antspawntimer + 1
-    if antspawntimer >= antspawntime then
-        Units.newUnit("Ant1")
-        Units.newUnit("Ant2")
-        antspawntimer = antspawntimer - antspawntime
+    if started then
+        antspawntimer = antspawntimer + 1
+        if antspawntimer >= antspawntime then
+            Units.newUnit("Ant1")
+            Units.newUnit("Ant2")
+            antspawntimer = antspawntimer - antspawntime
+        end
     end
     Units.activateAdded()
     Units.deleteRemoved()
