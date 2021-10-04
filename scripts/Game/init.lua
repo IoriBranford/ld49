@@ -123,7 +123,7 @@ end
 function Game.keypressed(key)
     Game.start()
     if key == "f12" then
-        love.graphics.captureScreenshot(os.date()..".png")
+        love.graphics.captureScreenshot(os.date("%Y-%m-%d-%H-%M-%S")..".png")
     end
 end
 
