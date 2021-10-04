@@ -5,6 +5,7 @@ local Physics = require "Physics"
 local Units   = require "Units"
 local Config  = require "Config"
 local Controls= require "Controls"
+local Prefabs = require "Prefabs"
 
 local Scene = require "Scene"
 local Game = {}
@@ -55,8 +56,12 @@ function Game.loadphase()
 
     for i, layer in ipairs(map.layers) do
         if layer.type == "objectgroup" then
-            for i, object in ipairs(layer) do
-                Units.addUnit(object)
+            if layer.name:find("^prefabs") then
+                Prefabs.add(layer)
+            else
+                for i, object in ipairs(layer) do
+                    Units.addUnit(object)
+                end
             end
         end
     end
