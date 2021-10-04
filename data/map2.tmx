@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="36" infinite="1" backgroundcolor="#0080e1" nextlayerid="4" nextobjectid="90">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="36" infinite="1" backgroundcolor="#0080e1" nextlayerid="4" nextobjectid="91">
  <editorsettings>
   <export target="map2.lua" format="lua"/>
  </editorsettings>
  <tileset firstgid="1" source="honeyhex.tsx"/>
+ <tileset firstgid="10" source="bee.tsx"/>
  <objectgroup id="3" name="honeyhex">
   <object id="1" name="honeyhex_empty1" gid="1" x="336" y="90" width="32" height="48"/>
   <object id="51" name="honeyhex_empty1" gid="1" x="400" y="198" width="32" height="48"/>
@@ -98,8 +99,10 @@
     <property name="bodytype" value="static"/>
     <property name="color" type="color" value="#ffaf7e2e"/>
     <property name="linecolor" type="color" value="#ff76551f"/>
+    <property name="linewidth" type="float" value="4"/>
    </properties>
-   <polygon points="-176,360 -176,198 -192,0 -288,-126 -544,-252 -768,-144 -816,-126 -896,-72 -848,-144 -768,-180 -688,-252 -704,-270 -880,-306 -144,-306 -144,360"/>
+   <polygon points="-176,360 -176,198 -192,0 -288,-126 -544,-252 -768,-144 -816,-126 -896,-72 -848,-144 -768,-180 -688,-252 -704,-270 -880,-306 -512,-306 -384,-270 -224,-216 -240,-306 -144,-306 -144,360"/>
   </object>
+  <object id="90" name="bee" gid="10" x="400" y="378" width="64" height="64"/>
  </objectgroup>
 </map>

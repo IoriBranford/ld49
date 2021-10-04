@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 36,
   nextlayerid = 4,
-  nextobjectid = 90,
+  nextobjectid = 91,
   backgroundcolor = { 0, 128, 225 },
   properties = {},
   tilesets = {
@@ -428,6 +428,111 @@ return {
                   { x = 16, y = 20 },
                   { x = 16, y = 6 }
                 },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "bee",
+      firstgid = 10,
+      tilewidth = 64,
+      tileheight = 64,
+      spacing = 0,
+      margin = 0,
+      columns = 2,
+      image = "bee.png",
+      imagewidth = 128,
+      imageheight = 64,
+      objectalignment = "center",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 64,
+        height = 64
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 2,
+      tiles = {
+        {
+          id = 0,
+          type = "Bee",
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "index",
+            id = 2,
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 16,
+                y = 16,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 0,
+              duration = 50
+            },
+            {
+              tileid = 1,
+              duration = 50
+            }
+          }
+        },
+        {
+          id = 1,
+          type = "Bee",
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "index",
+            id = 2,
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "ellipse",
+                x = 16,
+                y = 16,
+                width = 32,
+                height = 32,
+                rotation = 0,
+                visible = true,
                 properties = {
                   ["collidable"] = true
                 }
@@ -1709,14 +1814,33 @@ return {
             { x = -688, y = -252 },
             { x = -704, y = -270 },
             { x = -880, y = -306 },
+            { x = -512, y = -306 },
+            { x = -384, y = -270 },
+            { x = -224, y = -216 },
+            { x = -240, y = -306 },
             { x = -144, y = -306 },
             { x = -144, y = 360 }
           },
           properties = {
             ["bodytype"] = "static",
             ["color"] = "#ffaf7e2e",
-            ["linecolor"] = "#ff76551f"
+            ["linecolor"] = "#ff76551f",
+            ["linewidth"] = 4
           }
+        },
+        {
+          id = 90,
+          name = "bee",
+          type = "",
+          shape = "rectangle",
+          x = 400,
+          y = 378,
+          width = 64,
+          height = 64,
+          rotation = 0,
+          gid = 10,
+          visible = true,
+          properties = {}
         }
       }
     }
