@@ -68,6 +68,7 @@ function SceneObject.drawLine(sceneobject)
     applyTransform(sceneobject)
 
     love.graphics.setColor(sceneobject.red, sceneobject.green, sceneobject.blue, sceneobject.alpha)
+    love.graphics.setLineWidth(sceneobject.linewidth or 1)
     love.graphics.line(sceneobject.drawable)
 
     love.graphics.pop()
@@ -91,6 +92,7 @@ function SceneObject.drawPolygon(sceneobject)
     r,g,b,a = sceneobject.linered, sceneobject.linegreen, sceneobject.lineblue, sceneobject.linealpha
     if a then
         love.graphics.setColor(r,g,b,a)
+        love.graphics.setLineWidth(sceneobject.linewidth or 1)
         love.graphics.polygon("line", sceneobject.points)
     end
 
@@ -254,6 +256,7 @@ function Scene:addShapeObject(shapeobject)
             = Color.unpack(linecolor)
     end
 
+    sceneobject.linewidth = shapeobject.linewidth
     return sceneobject
 end
 

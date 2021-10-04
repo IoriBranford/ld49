@@ -103,6 +103,7 @@ local function drawFixture(fixture)
         love.graphics.circle("line", x, y, shape:getRadius())
     elseif typ == "polygon" or typ == "chain" then
         local body = fixture:getBody()
+        love.graphics.setLineWidth(1)
         love.graphics.polygon("line", body:getWorldPoints(shape:getPoints()))
     end
     return true
