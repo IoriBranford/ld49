@@ -15,6 +15,8 @@ local map
 local canvas
 local canvastransform
 local started
+local antspawntime = 120
+local antspawntimer
 
 function Game.loadphase()
     canvas = love.graphics.newCanvas(Config.basewindowwidth, Config.basewindowheight)
@@ -51,16 +53,29 @@ function Game.loadphase()
     scene = Scene.new()
     Units.init(scene)
     map = Tiled.load("data/map2.lua")
+    Units.setNextId(map.nextobjectid)
 
     scene:addMap(map, "tilelayer,imagelayer")
 
+    local worldlayer = map.layers.world
     for i, layer in ipairs(map.layers) do
         if layer.type == "objectgroup" then
+            layer.paths = {}
             if layer.name:find("^prefabs") then
                 Prefabs.add(layer)
+                for i, object in ipairs(layer) do
+                    object.layer = worldlayer
+                end
             else
                 for i, object in ipairs(layer) do
-                    Units.addUnit(object)
+                    for i, object in ipairs(layer) do
+                        object.layer = layer
+                    end
+                    if object.type == "Path" then
+                        layer.paths[object.id] = object
+                    else
+                        Units.addUnit(object)
+                    end
                 end
             end
         end
@@ -71,6 +86,7 @@ function Game.loadphase()
         love.graphics.setBackgroundColor(table.unpack(map.backgroundcolor))
     end
     Physics.setGravity(0, .125)
+    antspawntimer = 0
 end
 
 function Game.quitphase()
@@ -91,19 +107,22 @@ function Game.fixedupdate()
     Physics.fixedupdate()
     Units.updatePositions()
     Units.think()
-    -- for id, body in Physics.iterateBodies() do
-    --     Units.updateBody(id, body)
-    -- end
+    for id, body in Physics.iterateBodies() do
+        Units.updateBody(id, body)
+    end
+    antspawntimer = antspawntimer + 1
+    if antspawntimer >= antspawntime then
+        Units.newUnit("Ant1")
+        Units.newUnit("Ant2")
+        antspawntimer = antspawntimer - antspawntime
+    end
     Units.activateAdded()
     Units.deleteRemoved()
 end
 
 function Game.update(dsecs, fixedfrac)
-    for id, body in Physics.iterateBodies() do
-        scene:updateFromBody(id, body, fixedfrac)
-    end
     scene:animate(dsecs*1000)
-    -- Units.updateScene(fixedfrac)
+    Units.updateScene(fixedfrac)
 end
 
 function Game.draw()

@@ -19,7 +19,7 @@ function Bee:think()
     if dx ~= 0 then
         self.sprite.sx = dx
     end
-    self.body:setLinearVelocity(dx*speed, dy*speed)
+    self.velx, self.vely = dx*speed, dy*speed
 end
 
 return Bee

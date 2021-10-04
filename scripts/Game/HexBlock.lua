@@ -1,5 +1,6 @@
 local Sprite = require "Component.Sprite"
 local Body   = require "Component.Body"
+local Units  = require "Units"
 
 local HexBlock = {}
 HexBlock.metatable = {
@@ -10,6 +11,7 @@ function HexBlock:start(scene)
     Sprite.start(self, scene)
     Body.start(self)
     self.joints = {}
+    self.health = self.health or 120
 end
 
 function HexBlock:onCollision_stick(other)
@@ -27,6 +29,14 @@ end
 function HexBlock:think()
     -- self.body:applyForce(0, .25)
     Body.thinkCollision(self, HexBlock.onCollision_stick)
+end
+
+function HexBlock:eat(damage)
+    self.health = self.health - damage
+    if self.health <= 0 then
+        Units.remove(self)
+    end
+    return self.health
 end
 
 return HexBlock
