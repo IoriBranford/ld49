@@ -1,6 +1,7 @@
 local Sprite = require "Component.Sprite"
 local Body   = require "Component.Body"
 local Units  = require "Units"
+local Audio  = require "Audio"
 
 local HexBlock = {}
 HexBlock.metatable = {
@@ -12,6 +13,9 @@ function HexBlock:start(scene)
     Body.start(self)
     self.joints = {}
     self.health = self.health or 120
+    if self.damage then
+        Audio.play("sounds/throw.mp3")
+    end
 end
 
 function HexBlock:onCollision_stick(other)
@@ -25,6 +29,7 @@ function HexBlock:onCollision_stick(other)
     local joint = love.physics.newWeldJoint(self.body, other.body, math.mid(x, y, otherx, othery))
     self.joints[other.id] = joint
     other.joints[self.id] = joint
+    Audio.play("sounds/stick.mp3")
 end
 
 function HexBlock:think()

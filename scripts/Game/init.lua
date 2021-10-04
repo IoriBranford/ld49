@@ -7,6 +7,7 @@ local Config  = require "Config"
 local Controls= require "Controls"
 local Prefabs = require "Prefabs"
 local Sprite  = require "Component.Sprite"
+local Audio   = require "Audio"
 
 local Scene = require "Scene"
 local Game = {}
@@ -151,6 +152,10 @@ function Game.fixedupdate()
     end
     Units.activateAdded()
     Units.deleteRemoved()
+    if not Audio.isPlayingMusic() then
+        local music = Audio.playMusic("sounds/ambience_outdoor.mp3")
+        music:setLooping(true)
+    end
 end
 
 function Game.update(dsecs, fixedfrac)

@@ -9,6 +9,7 @@ local musicfadespeed = 0
 
 local types = {
     ogg = true,
+    mp3 = true,
     wav = true,
     xm = true,
     it = true,
@@ -87,6 +88,10 @@ function Audio.playMusic(file, track)
         music:setVolume(Config.musicvolume)
     end
     return music
+end
+
+function Audio.isPlayingMusic()
+    return music ~= nil
 end
 
 function Audio.fadeMusic(time)
