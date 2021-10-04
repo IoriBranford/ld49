@@ -549,9 +549,9 @@ return {
       tileheight = 16,
       spacing = 0,
       margin = 0,
-      columns = 2,
+      columns = 4,
       image = "ant.png",
-      imagewidth = 64,
+      imagewidth = 128,
       imageheight = 16,
       objectalignment = "bottom",
       tileoffset = {
@@ -565,11 +565,14 @@ return {
       },
       properties = {},
       wangsets = {},
-      tilecount = 2,
+      tilecount = 4,
       tiles = {
         {
           id = 0,
           type = "Ant",
+          properties = {
+            ["name"] = "empty"
+          },
           objectGroup = {
             type = "objectgroup",
             draworder = "index",
@@ -620,6 +623,99 @@ return {
         },
         {
           id = 1,
+          type = "Ant",
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 4 },
+                  { x = -12, y = 8 },
+                  { x = 0, y = 12 },
+                  { x = 12, y = 8 }
+                },
+                properties = {
+                  ["collidable"] = true,
+                  ["sensor"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 2,
+          type = "Ant",
+          properties = {
+            ["name"] = "full"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 0,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = 4 },
+                  { x = -12, y = 8 },
+                  { x = 0, y = 12 },
+                  { x = 12, y = 8 }
+                },
+                properties = {
+                  ["collidable"] = true,
+                  ["sensor"] = true
+                }
+              }
+            }
+          },
+          animation = {
+            {
+              tileid = 2,
+              duration = 50
+            },
+            {
+              tileid = 3,
+              duration = 50
+            }
+          }
+        },
+        {
+          id = 3,
           type = "Ant",
           objectGroup = {
             type = "objectgroup",
@@ -2001,6 +2097,7 @@ return {
           rotation = 0,
           visible = true,
           polyline = {
+            { x = 0, y = 18 },
             { x = 0, y = -144 },
             { x = -16, y = -342 },
             { x = -112, y = -468 },
@@ -2067,7 +2164,7 @@ return {
           type = "Ant",
           shape = "rectangle",
           x = 768,
-          y = 576,
+          y = 648,
           width = 32,
           height = 16,
           rotation = 270,

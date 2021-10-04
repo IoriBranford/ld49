@@ -108,14 +108,14 @@
   </object>
   <object id="90" name="bee" gid="10" x="400" y="378" width="64" height="64"/>
   <object id="92" name="pathfrombottom" type="Path" x="768" y="630">
-   <polyline points="0,-144 -16,-342 -112,-468 -368,-594 -592,-486 -624,-450 -656,-396 -640,-486 -608,-522 -528,-558 -480,-594 -528,-612 -704,-648"/>
+   <polyline points="0,18 0,-144 -16,-342 -112,-468 -368,-594 -592,-486 -624,-450 -656,-396 -640,-486 -608,-522 -528,-558 -480,-594 -528,-612 -704,-648"/>
   </object>
   <object id="95" name="pathfromtop" type="Path" x="-32" y="180">
    <polyline points="96,-198 272,-162 320,-144 272,-108 192,-72 160,-36 144,54 176,0 208,-36 432,-144 688,-18 784,108 800,306 800,468"/>
   </object>
  </objectgroup>
  <objectgroup id="4" name="prefabs">
-  <object id="91" name="Ant1" type="Ant" gid="12" x="768" y="576" width="32" height="16" rotation="270">
+  <object id="91" name="Ant1" type="Ant" gid="12" x="768" y="648" width="32" height="16" rotation="270">
    <properties>
     <property name="pathdirection" type="int" value="1"/>
    </properties>

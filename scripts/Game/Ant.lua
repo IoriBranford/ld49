@@ -27,6 +27,11 @@ function Ant:think()
     Body.thinkCollision(self, Ant.onCollision)
     if self.eatinghex then
         if HexBlock.eat(self.eatinghex, 1) <= 0 then
+            if self.eatinghex.honey then
+                Pathing.reverseDirection(self)
+                self.scalex = -self.scalex
+                Sprite.changeTile(self, "full")
+            end
             self.eatinghex = nil
         end
         self.speed = 0
