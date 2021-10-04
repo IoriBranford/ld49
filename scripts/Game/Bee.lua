@@ -2,6 +2,7 @@ local Controls = require "Controls"
 local Sprite   = require "Component.Sprite"
 local Body     = require "Component.Body"
 local Units    = require "Units"
+local Audio    = require "Audio"
 
 local Bee = {}
 Bee.metatable = {
@@ -23,10 +24,12 @@ function Bee:onCollision_eatAnt(other)
         if other.honey and not self.honey then
             self.speed = self.speed + 2
             self.honey = true
+            Audio.play("sounds/speedup.mp3")
         end
         if self.ammo < self.maxammo then
             self.ammo = self.ammo + 1
         end
+        Audio.play(string.format("sounds/eat%d.wav", love.math.random(3)))
         Units.remove(other)
     end
 end

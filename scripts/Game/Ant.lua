@@ -3,6 +3,7 @@ local Body   = require "Component.Body"
 local Pathing= require "Component.Pathing"
 local HexBlock = require "Game.HexBlock"
 local Units    = require "Units"
+local Audio    = require "Audio"
 
 local Ant = {}
 Ant.metatable = {
@@ -20,6 +21,7 @@ end
 function Ant:onCollision(other)
     if other.health then
         if other.damage then
+            Audio.play("sounds/squish.mp3")
             Units.remove(self)
         elseif not self.eatinghex then
             self.eatinghex = other
