@@ -1,4 +1,8 @@
-local ffi = require "ffi"
+local has_ffi, ffi = pcall(require, "ffi")
+if not has_ffi then
+	return false
+end
+
 local gmes = {
 	"gme",
 	"libgme.so.0"
