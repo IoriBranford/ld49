@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="22" infinite="1" backgroundcolor="#0080e1" nextlayerid="7" nextobjectid="291">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="32" tileheight="22" infinite="1" backgroundcolor="#0080e1" nextlayerid="7" nextobjectid="292">
  <editorsettings>
   <export target="title.lua" format="lua"/>
  </editorsettings>
@@ -10,7 +10,7 @@
   <properties>
    <property name="z" type="float" value="0"/>
   </properties>
-  <object id="90" name="bee" gid="10" x="96" y="450" width="64" height="64"/>
+  <object id="90" name="bee" gid="10" x="192" y="341" width="64" height="64"/>
   <object id="102" name="hexbar" x="-48" y="648">
    <polyline points="0,0 16,0"/>
   </object>
@@ -22,6 +22,9 @@
     <property name="linewidth" type="float" value="4"/>
    </properties>
    <polygon points="-208,529 -176,298 -176,198 -192,-54 -288,-126 -352,-131 -464,-87 -560,-54 -608,-32 -576,-65 -512,-98 -640,-87 -704,-98 -736,-120 -688,-109 -640,-109 -464,-131 -416,-153 -400,-180 -464,-216 -512,-234 -576,-234 -624,-216 -688,-180 -768,-153 -832,-120 -880,-76 -912,-21 -896,-87 -928,-76 -848,-142 -784,-186 -704,-216 -656,-252 -704,-270 -880,-306 -512,-306 -384,-270 -224,-216 -240,-306 -144,-306 -144,529"/>
+  </object>
+  <object id="291" type="Text" x="0" y="484" width="800" height="44">
+   <text pixelsize="32" wrap="1" color="#ffffff" halign="center">PRESS ANYTHING TO START</text>
   </object>
  </objectgroup>
  <objectgroup id="6" name="hive">

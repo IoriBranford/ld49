@@ -9,7 +9,7 @@ return {
   tilewidth = 32,
   tileheight = 22,
   nextlayerid = 7,
-  nextobjectid = 291,
+  nextobjectid = 292,
   backgroundcolor = { 0, 128, 225 },
   properties = {},
   tilesets = {
@@ -748,8 +748,8 @@ return {
           name = "bee",
           type = "",
           shape = "rectangle",
-          x = 96,
-          y = 450,
+          x = 192,
+          y = 341,
           width = 64,
           height = 64,
           rotation = 0,
@@ -835,6 +835,24 @@ return {
             ["linecolor"] = "#ff76551f",
             ["linewidth"] = 4
           }
+        },
+        {
+          id = 291,
+          name = "",
+          type = "Text",
+          shape = "text",
+          x = 0,
+          y = 484,
+          width = 800,
+          height = 44,
+          rotation = 0,
+          visible = true,
+          text = "PRESS ANYTHING TO START",
+          pixelsize = 32,
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "center",
+          properties = {}
         }
       }
     },

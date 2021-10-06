@@ -22,7 +22,7 @@ function love.load()--args, unfilteredargs)
     Controls.init()
 
     local firstphase = "Game"
-    local firstmap = "data/stage_demonrealm.lua"
+    local firstmap = "data/title.lua"
 
     local Usage = {
         Desc =	"Demonizer 1.5 engine\n",

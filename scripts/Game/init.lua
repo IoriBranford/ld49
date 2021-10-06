@@ -25,7 +25,7 @@ local antspawntype
 local ammobar
 local bee
 
-function Game.loadphase()
+function Game.loadphase(mapfile)
     antcount = 50
     antspawntime = 160
     antspawntimedec = 2
@@ -65,7 +65,7 @@ function Game.loadphase()
     Physics.init()
     scene = Scene.new()
     Units.init(scene)
-    map = Tiled.load("data/map.lua")
+    map = Tiled.load(mapfile)
     Units.setNextId(map.nextobjectid)
 
     scene:addMap(map, "tilelayer,imagelayer")
@@ -105,7 +105,7 @@ function Game.loadphase()
     end
 
     Units.activateAdded()
-    started = false
+    started = mapfile == "data/map.lua"
     if map.backgroundcolor then
         love.graphics.setBackgroundColor(table.unpack(map.backgroundcolor))
     end
@@ -116,14 +116,20 @@ function Game.quitphase()
     Units.clear()
     Types.clear()
     Physics.clear()
+    Prefabs.clear()
     scene = nil
     map = nil
+    canvas = nil
+    canvastransform = nil
+    ammobar = nil
+    bee = nil
 end
 
 function Game.keypressed(key)
-    Game.start()
     if key == "f12" then
         love.graphics.captureScreenshot(os.date("%Y-%m-%d-%H-%M-%S")..".png")
+    else
+        Game.start()
     end
 end
 
@@ -137,16 +143,11 @@ end
 
 function Game.start()
     if not started then
-        started = true
+        love.event.loadphase("Game", "data/map.lua")
     end
 end
 
 function Game.fixedupdate()
-    if not started then
-        if Controls.getButtonsPressed() then
-            started = true
-        end
-    end
     Physics.fixedupdate()
     Units.updatePositions()
     Units.think()
@@ -171,6 +172,7 @@ function Game.fixedupdate()
         local music = Audio.playMusic("sounds/ambience_outdoor.mp3")
         music:setLooping(true)
     end
+    Controls.clearButtonsPressed()
 end
 
 function Game.update(dsecs, fixedfrac)
@@ -196,10 +198,6 @@ function Game.draw()
     love.graphics.draw(canvas)
 
     love.graphics.pop()
-
-    if not started then
-        love.graphics.printf("PRESS KEY OR BUTTON TO START", 0, love.graphics.getHeight()/2, love.graphics.getWidth(), "center")
-    end
 end
 
 return Game
