@@ -7,8 +7,7 @@ variables:
   ARCH_BITS: "64"
   COPYRIGHT: "© 2021 IoriBranford"
   APPLICATION_ID_BASE: "io.itch.ioribranford.jennybee"
-  PREREQS: zip
-              # git luajit
+  PREREQS: zip git luajit
 
 stages:
   - build
