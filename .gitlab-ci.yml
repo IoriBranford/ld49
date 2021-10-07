@@ -1,0 +1,96 @@
+variables:
+  PROJECT: jennybee
+  PROJECT_TITLE: JennyBee
+  PROJECT_TITLE_NOSPACE: JennyBee
+  LOVE_VERSION: "11.3"
+  ARCH: "x86_64"
+  ARCH_BITS: "64"
+  COPYRIGHT: "© 2021 IoriBranford"
+  APPLICATION_ID_BASE: "io.itch.ioribranford.jennybee"
+  PREREQS: zip
+              # git luajit
+
+stages:
+  - build
+
+pages:
+  image: node:lts-alpine
+  stage: build
+  before_script:
+    - apk add --update $PREREQS
+  script:
+  - ./make-web.sh
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
+
+love:
+  image: alpine
+  stage: build
+  before_script:
+    - apk add --update $PREREQS wget xz
+  script:
+    - ./make-game.sh
+  artifacts:
+    name: "${PROJECT}-${VERSION}-data"
+    paths:
+      - "${GAME_ASSET}"
+
+windows:
+  image: tianon/wine
+  stage: build
+  before_script:
+    - apt-get install -y -qq $PREREQS wget # curl
+  script:
+    - ./make-windows.sh
+  cache:
+    key: "$PROJECT-windows"
+    paths:
+      - "love-${LOVE_VERSION}-win${ARCH_BITS}"
+      - "bin"
+      - "rcedit-x64.exe"
+      - ".wine${ARCH_BITS}"
+  artifacts:
+    name: "$PROJECT-windows"
+    paths:
+      - "$PROJECT_TITLE"
+
+macos-intel:
+  image: openloco/osxcross
+  stage: build
+  variables:
+    CFBundleIdentifier: "${APPLICATION_ID_BASE}"
+    NSHumanReadableCopyright: "${COPYRIGHT}"
+    INSTALL_NAME_TOOL: /usr/osxcross/bin/x86_64-apple-darwin17-install_name_tool
+  before_script:
+    - apt-get install -y -qq $PREREQS wget
+  script:
+    - ./make-macos.sh
+  cache:
+    key: "${PROJECT}-macos-intel"
+    paths:
+      - "love.app"
+  artifacts:
+    name: "${PROJECT}-macos-intel"
+    paths:
+      - "${PROJECT_TITLE}.app"
+
+linux-x86_64:
+  stage: build
+  image: debian:stable-slim
+  before_script:
+      - apt-get install -y -qq $PREREQS file wget fuse libglib2.0-0 curl
+  script:
+    - ./make-linux.sh
+  cache:
+    key: "${PROJECT}-linux-${ARCH}"
+    paths:
+      - "love-${LOVE_VERSION}-${ARCH}.AppImage"
+      - "appimagetool"
+      - "*.deb"
+  artifacts:
+    name: "${PROJECT}-linux-${ARCH}"
+    paths:
+      - ${PROJECT_TITLE_NOSPACE}-${ARCH}
