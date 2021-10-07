@@ -32,10 +32,10 @@ GAME_DESKTOPFILE=${PROJECT_TITLE_NOSPACE}.desktop
 GAME_DIR=${GAME_DIR:="${PROJECT_TITLE_NOSPACE}-${ARCH}"}
 GAME_APPIMAGE=${GAME_APPIMAGE:="${PROJECT_TITLE_NOSPACE}-${ARCH}.AppImage"}
 
-LIBGME_VERSION=0.5.5-2+deb8u1
+LIBGME_VERSION=0.6.3-2
 LIBGME_DEB=libgme0_${LIBGME_VERSION}_${DEB_ARCH}.deb
 LIBGME_DEV_DEB=libgme-dev_${LIBGME_VERSION}_${DEB_ARCH}.deb
-LIBGME_URL=http://security.debian.org/debian-security/pool/updates/main/g/game-music-emu
+LIBGME_URL=http://ftp.debian.org/debian/pool/main/g/game-music-emu
 
 ./make-game.sh
 
@@ -66,10 +66,13 @@ then
 fi
 mv squashfs-root ${GAME_APPDIR}
 
-download ${LIBGME_URL} ${LIBGME_DEB}
-download ${LIBGME_URL} ${LIBGME_DEV_DEB}
-dpkg -x ${LIBGME_DEB} ${GAME_APPDIR}
-dpkg -x ${LIBGME_DEV_DEB} ${GAME_APPDIR}
+if [ -f gme.dll ]
+then
+	download ${LIBGME_URL} ${LIBGME_DEB}
+	download ${LIBGME_URL} ${LIBGME_DEV_DEB}
+	dpkg -x ${LIBGME_DEB} ${GAME_APPDIR}
+	dpkg -x ${LIBGME_DEV_DEB} ${GAME_APPDIR}
+fi
 
 set_property() {
 	FILE=$1
