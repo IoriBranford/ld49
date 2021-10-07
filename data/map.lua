@@ -8,8 +8,8 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 36,
-  nextlayerid = 7,
-  nextobjectid = 113,
+  nextlayerid = 8,
+  nextobjectid = 115,
   backgroundcolor = { 0, 128, 225 },
   properties = {},
   tilesets = {
@@ -867,23 +867,6 @@ return {
             { x = 784, y = 108 },
             { x = 800, y = 306 },
             { x = 800, y = 468 }
-          },
-          properties = {}
-        },
-        {
-          id = 102,
-          name = "hexbar",
-          type = "",
-          shape = "polyline",
-          x = 32,
-          y = 540,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 16, y = 0 }
           },
           properties = {}
         }
@@ -1945,6 +1928,76 @@ return {
             ["linecolor"] = "#ffaaaa00",
             ["z"] = 10
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 7,
+      name = "ui",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 102,
+          name = "hexbar",
+          type = "",
+          shape = "polyline",
+          x = 32,
+          y = 540,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 16, y = 0 }
+          },
+          properties = {}
+        },
+        {
+          id = 113,
+          name = "losetext",
+          type = "Text",
+          shape = "text",
+          x = 0,
+          y = 360,
+          width = 800,
+          height = 73,
+          rotation = 0,
+          visible = true,
+          text = "GAME OVER",
+          fontfamily = "Sans Serif",
+          pixelsize = 32,
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "center",
+          properties = {}
+        },
+        {
+          id = 114,
+          name = "wintext",
+          type = "Text",
+          shape = "text",
+          x = 0,
+          y = 360,
+          width = 800,
+          height = 73,
+          rotation = 0,
+          visible = true,
+          text = "YOU WIN!",
+          fontfamily = "Sans Serif",
+          pixelsize = 32,
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "center",
+          properties = {}
         }
       }
     }

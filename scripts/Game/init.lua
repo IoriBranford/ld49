@@ -17,20 +17,49 @@ local map
 local canvas
 local canvastransform
 local started
-local antcount
+local antstospawn
+local antsactive
 local antspawntime
 local antspawntimedec
 local antspawntimer
 local antspawntype
+local honeyhexcount
 local ammobar
+local wintext
+local losetext
 local bee
 
+function Game.antRemoved()
+    antsactive = antsactive - 1
+    if antsactive <= 0 and antstospawn <= 0 then
+        if honeyhexcount > 0 then
+            if wintext then
+                wintext:setHidden(false)
+            end
+        end
+    end
+end
+
+function Game.honeyLost()
+    honeyhexcount = honeyhexcount - 1
+    if honeyhexcount <= 0 then
+        if wintext then
+            wintext:setHidden(true)
+        end
+        if losetext then
+            losetext:setHidden(false)
+        end
+    end
+end
+
 function Game.loadphase(mapfile)
-    antcount = 50
+    antstospawn = 50
+    antsactive = 0
     antspawntime = 160
     antspawntimedec = 2
     antspawntimer = 0
     antspawntype = "Ant1"
+    honeyhexcount = 0
 
     canvas = love.graphics.newCanvas(Config.basewindowwidth, Config.basewindowheight)
     canvas:setFilter("nearest", "nearest")
@@ -94,8 +123,18 @@ function Game.loadphase(mapfile)
         end
     end
 
+    local hive = map.layers.hive
+    if hive then
+        for i, hex in ipairs(hive) do
+            if hex.honey then
+                honeyhexcount = honeyhexcount + 1
+            end
+        end
+    end
+
     bee = worldlayer.bee
-    local hexbar = worldlayer.hexbar
+
+    local hexbar = map.layers.ui.hexbar
     local x, y = hexbar.points[1], hexbar.points[2]
     local dx = hexbar.points[3] - x
     ammobar = {}
@@ -110,6 +149,15 @@ function Game.loadphase(mapfile)
         love.graphics.setBackgroundColor(table.unpack(map.backgroundcolor))
     end
     Physics.setGravity(0, .125)
+
+    wintext = map.layers.ui.wintext
+    if wintext then
+        wintext:setHidden(true)
+    end
+    losetext = map.layers.ui.losetext
+    if losetext then
+        losetext:setHidden(true)
+    end
 end
 
 function Game.quitphase()
@@ -155,11 +203,12 @@ function Game.fixedupdate()
         Units.updateBody(id, body)
     end
     if started then
-        if antcount > 0 then
+        if antstospawn > 0 then
             antspawntimer = antspawntimer + 1
             if antspawntimer >= antspawntime then
                 Units.newUnit(antspawntype)
-                antcount = antcount - 1
+                antsactive = antsactive + 1
+                antstospawn = antstospawn - 1
                 antspawntype = antspawntype == "Ant1" and "Ant2" or "Ant1"
                 antspawntime = antspawntime - antspawntimedec
                 antspawntimer = antspawntimer - antspawntime

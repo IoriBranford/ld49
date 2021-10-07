@@ -8,8 +8,8 @@ return {
   height = 100,
   tilewidth = 32,
   tileheight = 22,
-  nextlayerid = 7,
-  nextobjectid = 292,
+  nextlayerid = 8,
+  nextobjectid = 293,
   backgroundcolor = { 0, 128, 225 },
   properties = {},
   tilesets = {
@@ -758,23 +758,6 @@ return {
           properties = {}
         },
         {
-          id = 102,
-          name = "hexbar",
-          type = "",
-          shape = "polyline",
-          x = -48,
-          y = 648,
-          width = 0,
-          height = 0,
-          rotation = 0,
-          visible = true,
-          polyline = {
-            { x = 0, y = 0 },
-            { x = 16, y = 0 }
-          },
-          properties = {}
-        },
-        {
           id = 234,
           name = "tree",
           type = "Ground",
@@ -835,24 +818,6 @@ return {
             ["linecolor"] = "#ff76551f",
             ["linewidth"] = 4
           }
-        },
-        {
-          id = 291,
-          name = "",
-          type = "Text",
-          shape = "text",
-          x = 0,
-          y = 484,
-          width = 800,
-          height = 44,
-          rotation = 0,
-          visible = true,
-          text = "PRESS ANYTHING TO START",
-          pixelsize = 32,
-          wrap = true,
-          color = { 255, 255, 255 },
-          halign = "center",
-          properties = {}
         }
       }
     },
@@ -2458,6 +2423,56 @@ return {
             ["linecolor"] = "#ffaaaa00",
             ["z"] = 10
           }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
+      id = 7,
+      name = "ui",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 291,
+          name = "starttext",
+          type = "Text",
+          shape = "text",
+          x = 0,
+          y = 484,
+          width = 800,
+          height = 44,
+          rotation = 0,
+          visible = true,
+          text = "PRESS ANYTHING TO START",
+          pixelsize = 32,
+          wrap = true,
+          color = { 255, 255, 255 },
+          halign = "center",
+          properties = {}
+        },
+        {
+          id = 102,
+          name = "hexbar",
+          type = "",
+          shape = "polyline",
+          x = -48,
+          y = 648,
+          width = 0,
+          height = 0,
+          rotation = 0,
+          visible = true,
+          polyline = {
+            { x = 0, y = 0 },
+            { x = 16, y = 0 }
+          },
+          properties = {}
         }
       }
     }

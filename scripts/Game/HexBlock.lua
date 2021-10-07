@@ -2,6 +2,7 @@ local Sprite = require "Component.Sprite"
 local Body   = require "Component.Body"
 local Units  = require "Units"
 local Audio  = require "Audio"
+local Game = require "Game"
 
 local HexBlock = {}
 HexBlock.metatable = {
@@ -40,16 +41,23 @@ function HexBlock:think()
     end
     Body.thinkCollision(self, HexBlock.onCollision_stick)
     if self.x < -16 or self.y > 640 then
-        Units.remove(self)
+        self:remove()
     end
 end
 
 function HexBlock:eat(damage)
     self.health = self.health - damage
     if self.health <= 0 then
-        Units.remove(self)
+        self:remove()
     end
     return self.health
+end
+
+function HexBlock:remove()
+    Units.remove(self)
+    if self.honey then
+        Game.honeyLost()
+    end
 end
 
 return HexBlock

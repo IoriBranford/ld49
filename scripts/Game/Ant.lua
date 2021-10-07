@@ -4,6 +4,7 @@ local Pathing= require "Component.Pathing"
 local HexBlock = require "Game.HexBlock"
 local Units    = require "Units"
 local Audio    = require "Audio"
+local Game = require "Game"
 
 local Ant = {}
 Ant.metatable = {
@@ -22,7 +23,7 @@ function Ant:onCollision(other)
     if other.health then
         if other.damage then
             Audio.play("sounds/squish.mp3")
-            Units.remove(self)
+            self:remove()
         elseif not self.eatinghex then
             self.eatinghex = other
             self.speed = 0
@@ -56,7 +57,19 @@ function Ant:think()
         if self.sprite.sx < 0 then
             self.rotation = self.rotation - math.pi
         end
+    elseif Pathing.isAtEnd(self) then
+        self:remove()
     end
+end
+
+function Ant:eat()
+    Audio.play(string.format("sounds/eat%d.wav", love.math.random(3)))
+    self:remove()
+end
+
+function Ant:remove()
+    Units.remove(self)
+    Game.antRemoved()
 end
 
 return Ant
