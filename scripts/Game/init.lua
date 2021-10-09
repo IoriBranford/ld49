@@ -37,11 +37,18 @@ function Game.antRemoved()
             victorycoroutine = coroutine.create(
                 function()
                     Physics.setGravity(0, 0)
-                    for i = 1, #victorylayer do
-                        Units.addUnit(victorylayer[i])
-                        coroutine.wait(1)
+                    local i = 1
+                    while i <= #victorylayer do
+                        local i2 = math.min(i+4, #victorylayer)
+                        for j = i,i2 do
+                            Units.addUnit(victorylayer[j])
+                        end
+                        i = i + 5
+                        coroutine.wait(3)
                     end
                     Physics.setGravity(0, .125)
+                    coroutine.wait(30)
+                    Audio.play("sounds/ehehe.mp3")
                 end
             )
         end
