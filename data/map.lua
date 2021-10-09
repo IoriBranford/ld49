@@ -7,9 +7,9 @@ return {
   width = 100,
   height = 100,
   tilewidth = 32,
-  tileheight = 36,
-  nextlayerid = 8,
-  nextobjectid = 115,
+  tileheight = 22,
+  nextlayerid = 9,
+  nextobjectid = 261,
   backgroundcolor = { 0, 128, 225 },
   properties = {},
   tilesets = {
@@ -719,6 +719,430 @@ return {
                 properties = {
                   ["collidable"] = true,
                   ["sensor"] = true
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      name = "honeyhex_title",
+      firstgid = 16,
+      tilewidth = 32,
+      tileheight = 48,
+      spacing = 0,
+      margin = 0,
+      columns = 1,
+      image = "honeyhex.png",
+      imagewidth = 32,
+      imageheight = 432,
+      objectalignment = "center",
+      tileoffset = {
+        x = 0,
+        y = 0
+      },
+      grid = {
+        orientation = "orthogonal",
+        width = 32,
+        height = 48
+      },
+      properties = {},
+      wangsets = {},
+      tilecount = 9,
+      tiles = {
+        {
+          id = 0,
+          type = "HexBlock",
+          properties = {
+            ["name"] = "empty1"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "index",
+            id = 2,
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 1,
+          type = "HexBlock",
+          properties = {
+            ["name"] = "empty2"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 2,
+          type = "HexBlock",
+          properties = {
+            ["name"] = "empty3"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 3,
+          type = "HexBlock",
+          properties = {
+            ["name"] = "empty4"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 4,
+          type = "HexBlock",
+          properties = {
+            ["name"] = "empty5"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 5,
+          type = "HexBlock",
+          properties = {
+            ["name"] = "empty6"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 6,
+          type = "HexBlock_Honey",
+          properties = {
+            ["name"] = "honey1"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 7,
+          type = "HexBlock_Honey",
+          properties = {
+            ["name"] = "honey2"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
+                }
+              }
+            }
+          }
+        },
+        {
+          id = 8,
+          type = "HexBlock_Honey",
+          properties = {
+            ["name"] = "honey3"
+          },
+          objectGroup = {
+            type = "objectgroup",
+            draworder = "topdown",
+            name = "",
+            visible = true,
+            opacity = 1,
+            offsetx = 0,
+            offsety = 0,
+            parallaxx = 1,
+            parallaxy = 1,
+            properties = {},
+            objects = {
+              {
+                id = 1,
+                name = "",
+                type = "",
+                shape = "polygon",
+                x = 16,
+                y = 11,
+                width = 0,
+                height = 0,
+                rotation = 0,
+                visible = true,
+                polygon = {
+                  { x = 0, y = -2 },
+                  { x = -16, y = 6 },
+                  { x = -16, y = 20 },
+                  { x = 0, y = 28 },
+                  { x = 16, y = 20 },
+                  { x = 16, y = 6 }
+                },
+                properties = {
+                  ["collidable"] = true
                 }
               }
             }
@@ -1844,6 +2268,1413 @@ return {
     {
       type = "objectgroup",
       draworder = "topdown",
+      id = 8,
+      name = "victory",
+      visible = true,
+      opacity = 1,
+      offsetx = 0,
+      offsety = 0,
+      parallaxx = 1,
+      parallaxy = 1,
+      properties = {},
+      objects = {
+        {
+          id = 162,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 528,
+          y = 517,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 163,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 544,
+          y = 495,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 164,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 528,
+          y = 473,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 165,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 544,
+          y = 451,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 166,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 528,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 167,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 560,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 168,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 576,
+          y = 451,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 169,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 592,
+          y = 473,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 170,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 608,
+          y = 495,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 171,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 624,
+          y = 517,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 172,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 624,
+          y = 473,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 173,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 608,
+          y = 451,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 174,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 624,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 175,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 464,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 186,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 368,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 176,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 432,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 177,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 400,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 178,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 416,
+          y = 451,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 179,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 400,
+          y = 473,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 180,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 432,
+          y = 473,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 181,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 416,
+          y = 495,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 182,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 368,
+          y = 517,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 183,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 400,
+          y = 517,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 184,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 464,
+          y = 517,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 185,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 432,
+          y = 517,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 187,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 188,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 451,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 189,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 473,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 190,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 495,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 191,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 517,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 192,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 495,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 193,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 473,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 194,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 495,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 195,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 208,
+          y = 517,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 196,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 495,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 197,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 473,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 198,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 451,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 199,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 207,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 496,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 208,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 336,
+          y = 429,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 209,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 253,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 213,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 231,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 214,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 176,
+          y = 209,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 253,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 160,
+          y = 187,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 254,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 144,
+          y = 165,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 215,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 624,
+          y = 209,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 217,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 640,
+          y = 187,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 260,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 656,
+          y = 165,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 256,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 640,
+          y = 407,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 257,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 624,
+          y = 385,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 258,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 608,
+          y = 363,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 211,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 624,
+          y = 253,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 212,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 640,
+          y = 231,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 218,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 275,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 219,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 208,
+          y = 297,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 220,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 319,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 221,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 256,
+          y = 319,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 222,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 272,
+          y = 297,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 223,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 288,
+          y = 275,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 224,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 240,
+          y = 341,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 225,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 224,
+          y = 363,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 226,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 208,
+          y = 385,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 227,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 275,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 228,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 384,
+          y = 275,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 229,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 416,
+          y = 275,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 230,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 336,
+          y = 297,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 231,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 320,
+          y = 319,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 232,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 336,
+          y = 341,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 233,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 352,
+          y = 363,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 234,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 384,
+          y = 363,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 235,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 416,
+          y = 363,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 236,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 432,
+          y = 341,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 237,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 448,
+          y = 319,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 238,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 432,
+          y = 297,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 239,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 512,
+          y = 275,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 241,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 528,
+          y = 297,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 242,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 512,
+          y = 319,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 244,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 528,
+          y = 341,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 245,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 544,
+          y = 363,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 246,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 576,
+          y = 363,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 247,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 592,
+          y = 341,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 248,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 608,
+          y = 319,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 249,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 592,
+          y = 297,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 250,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 608,
+          y = 275,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 16,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 251,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 480,
+          y = 319,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 252,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 304,
+          y = 297,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        },
+        {
+          id = 255,
+          name = "",
+          type = "",
+          shape = "rectangle",
+          x = 192,
+          y = 407,
+          width = 32,
+          height = 48,
+          rotation = 0,
+          gid = 22,
+          visible = true,
+          properties = {
+            ["sensor"] = true
+          }
+        }
+      }
+    },
+    {
+      type = "objectgroup",
+      draworder = "topdown",
       id = 4,
       name = "prefabs",
       visible = true,
@@ -1973,25 +3804,6 @@ return {
           rotation = 0,
           visible = true,
           text = "GAME OVER",
-          fontfamily = "Sans Serif",
-          pixelsize = 32,
-          wrap = true,
-          color = { 255, 255, 255 },
-          halign = "center",
-          properties = {}
-        },
-        {
-          id = 114,
-          name = "wintext",
-          type = "Text",
-          shape = "text",
-          x = 0,
-          y = 360,
-          width = 800,
-          height = 73,
-          rotation = 0,
-          visible = true,
-          text = "YOU WIN!",
           fontfamily = "Sans Serif",
           pixelsize = 32,
           wrap = true,

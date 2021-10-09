@@ -55,7 +55,7 @@ function Body.start(unit)
 						end
 						if fixture then
 							fixture:setFriction(shapeobject.friction or 0)
-							fixture:setSensor(shapeobject.sensor or false)
+							fixture:setSensor(shapeobject.sensor or unit.sensor or false)
 						end
 					end
 				end
@@ -151,7 +151,7 @@ function Body.thinkCollision(unit, onCollision)
 			local id2 = b2:getUserData()
             local other = id2 and Units.get(id2)
             if other then
-				onCollision(unit, other)
+				onCollision(unit, other, contact)
             end
 		end
 	end

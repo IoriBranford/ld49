@@ -25,7 +25,8 @@ local antspawntimer
 local antspawntype
 local honeyhexcount
 local ammobar
-local wintext
+local victorylayer
+local victorycoroutine
 local losetext
 local bee
 
@@ -33,9 +34,16 @@ function Game.antRemoved()
     antsactive = antsactive - 1
     if antsactive <= 0 and antstospawn <= 0 then
         if honeyhexcount > 0 then
-            if wintext then
-                wintext:setHidden(false)
-            end
+            victorycoroutine = coroutine.create(
+                function()
+                    Physics.setGravity(0, 0)
+                    for i = 1, #victorylayer do
+                        Units.addUnit(victorylayer[i])
+                        coroutine.wait(1)
+                    end
+                    Physics.setGravity(0, .125)
+                end
+            )
         end
     end
 end
@@ -43,9 +51,6 @@ end
 function Game.honeyLost()
     honeyhexcount = honeyhexcount - 1
     if honeyhexcount <= 0 then
-        if wintext then
-            wintext:setHidden(true)
-        end
         if losetext then
             losetext:setHidden(false)
         end
@@ -100,24 +105,23 @@ function Game.loadphase(mapfile)
     scene:addMap(map, "tilelayer,imagelayer")
 
     local worldlayer = map.layers.world
-    for i, layer in ipairs(map.layers) do
+
+    local prefabs = map.layers.prefabs
+    Prefabs.add(prefabs)
+    for i, object in ipairs(prefabs) do
+        object.layer = worldlayer
+    end
+
+    for i, layername in ipairs({"world", "hive", "ui"}) do
+        local layer = map.layers[layername]
         if layer.type == "objectgroup" then
             layer.paths = {}
-            if layer.name:find("^prefabs") then
-                Prefabs.add(layer)
-                for i, object in ipairs(layer) do
-                    object.layer = worldlayer
-                end
-            else
-                for i, object in ipairs(layer) do
-                    for i, object in ipairs(layer) do
-                        object.layer = layer
-                    end
-                    if object.type == "Path" then
-                        layer.paths[object.id] = object
-                    else
-                        Units.addUnit(object)
-                    end
+            for i, object in ipairs(layer) do
+                object.layer = layer
+                if object.type == "Path" then
+                    layer.paths[object.id] = object
+                else
+                    Units.addUnit(object)
                 end
             end
         end
@@ -150,10 +154,8 @@ function Game.loadphase(mapfile)
     end
     Physics.setGravity(0, .125)
 
-    wintext = map.layers.ui.wintext
-    if wintext then
-        wintext:setHidden(true)
-    end
+    victorylayer = map.layers.victory
+
     losetext = map.layers.ui.losetext
     if losetext then
         losetext:setHidden(true)
@@ -213,6 +215,12 @@ function Game.fixedupdate()
                 antspawntime = antspawntime - antspawntimedec
                 antspawntimer = antspawntimer - antspawntime
             end
+        end
+    end
+    if victorycoroutine then
+        coroutine.resume(victorycoroutine)
+        if coroutine.status(victorycoroutine) == "dead" then
+            victorycoroutine = nil
         end
     end
     Units.activateAdded()

@@ -20,7 +20,12 @@ function Bee:start(scene)
     self.speed = self.speed or 4
 end
 
-function Bee:onCollision_eatAnt(other)
+function Bee:onCollision_eatAnt(other, contact)
+    if other.ignoreplayer then
+        print(other.ignoreplayer)
+        contact:setEnabled(false)
+        return
+    end
     if other.eat == Ant.eat then
         if other.honey and not self.honey then
             self.speed = self.speed + 2

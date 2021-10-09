@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tileset version="1.5" tiledversion="1.7.2" name="honeyhex" tilewidth="32" tileheight="48" tilecount="9" columns="1" objectalignment="center">
+<tileset version="1.5" tiledversion="1.7.2" name="honeyhex_title" tilewidth="32" tileheight="48" tilecount="9" columns="1" objectalignment="center">
  <image source="honeyhex.png" width="32" height="432"/>
  <tile id="0" type="HexBlock">
   <properties>
